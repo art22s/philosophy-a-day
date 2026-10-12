@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-12",
+  "title": "The Extended Mind — when tools become part of thinking",
+  "when": "The modern thesis was formulated by philosophers Andy Clark and David Chalmers in their 1998 paper “The Extended Mind.” It developed from late-20th-century debates in philosophy of mind, cognitive science, and embodied and situated cognition.",
+  "people": "Andy Clark and David Chalmers; earlier relevant work includes Hilary Putnam and Tyler Burge on externalism, and Edwin Hutchins on distributed cognition.",
+  "origin": "Anglo-American analytic philosophy and cognitive science in the 1990s, developed through debate about how cognition depends on bodies and environments.",
+  "idea": "The extended-mind thesis asks whether thinking always stops at the skin and skull. Clark and Chalmers argue that some external resources can count as parts of cognitive processes when they are reliably available, routinely used, and tightly integrated with a person’s activity. Their well-known example is Otto, who relies on a notebook to store information because of memory impairment. If he consults it automatically and treats its entries as he would ordinary recollections, the notebook may function as part of his memory system. The claim is not that every object we use becomes mental: a resource’s consistent, active role matters. Nor is it simply the claim that the environment influences thought. The stronger proposal is that certain environmental structures help constitute thinking itself. Philosophers continue to dispute how much integration is enough and whether the argument extends from cognitive processes to beliefs or other mental states.",
+  "relevance": "Phones, calendars, navigation systems, and collaborative software make the boundary question practical: are these merely aids, or parts of how we remember and reason? The thesis helps frame questions about cognitive dependence, accessibility, privacy, and responsibility without assuming that every technology is literally part of a mind.",
+  "sources": [
+    {
+      "name": "Stanford Encyclopedia of Philosophy: Externalism About the Mind",
+      "url": "https://plato.stanford.edu/entries/content-externalism/"
+    },
+    {
+      "name": "Clark and Chalmers: The Extended Mind (1998)",
+      "url": "https://www.consc.net/papers/extended.html"
+    },
+    {
+      "name": "Internet Encyclopedia of Philosophy: Extended Mind Thesis",
+      "url": "https://iep.utm.edu/extended-mind-thesis/"
+    }
+  ]
+}

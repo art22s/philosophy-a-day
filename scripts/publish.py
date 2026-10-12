@@ -131,7 +131,15 @@ def main(filename):
     output = render(reports)
     index = ROOT / "index.html"
     if index.exists() and index.read_text(encoding="utf-8") == output:
-        raise ValueError("this edition is already published")
+        # Same-day manual reruns verify the existing edition rather than duplicating it.
+        for attempt in range(10):
+            if verify(report_date, output):
+                print(json.dumps({"status": "already_deployed", "date": report_date, "url": SITE}))
+                return
+            if attempt < 9:
+                time.sleep(3)
+        print(json.dumps({"status": "already_committed_unverified", "date": report_date, "url": SITE}))
+        raise SystemExit(2)
     if git("diff", "--cached", "--name-only"):
         raise ValueError("staged Git changes exist; refusing to publish")
     if git("status", "--porcelain", "--", "index.html"):

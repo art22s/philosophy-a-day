@@ -96,7 +96,7 @@ header.hero{{padding:62px 0 34px}}.eyebrow{{color:var(--accent);font-size:.78rem
 @media(prefers-color-scheme:dark){{:root{{--ink:#ecece6;--muted:#b0b2aa;--paper:#171a18;--card:#202522;--line:#39413b;--accent:#8bcab5;--soft:#273d34}}.sources{{background:#272d29}}}}
 </style></head><body><div class="wrap"><div class="topbar"><a class="brand" href="./">◒ Philosophy a Day</a></div>
 <header class="hero"><div class="eyebrow">One idea, every day</div><h1>Think a little deeper.</h1><p class="lede">A daily field guide to how people have made sense of reality, knowledge, and the good life — across cultures, centuries, and disciplines.</p></header>
-<main><article class="report"><div class="edition-date">TODAY'S EDITION · <time datetime="{esc(latest["date"])}">{esc(latest["date"])}</time></div><h2>{esc(latest["title"])}</h2>
+<main><article class="report" id="edition-{esc(latest["date"])}"><div class="edition-date">TODAY'S EDITION · <time datetime="{esc(latest["date"])}">{esc(latest["date"])}</time></div><h2>{esc(latest["title"])}</h2>
 <div class="tags"><span class="tag">{esc(latest["origin"])}</span></div><dl class="facts"><dt>When</dt><dd>{esc(latest["when"])}</dd><dt>Important people</dt><dd>{esc(latest["people"])}</dd><dt>Origin</dt><dd>{esc(latest["origin"])}</dd></dl>
 <div class="prose"><h3>The idea</h3>{paragraph(latest["idea"])}<h3>Why it matters</h3>{paragraph(latest["relevance"])}</div><aside class="sources"><h3>Further reading</h3><ul>{source_html}</ul></aside></article>
 <section class="archive" aria-labelledby="archive-title"><div class="archive-head"><div><div class="eyebrow">Keep exploring</div><h2 id="archive-title">The archive</h2></div><input id="search" class="search" type="search" placeholder="Search ideas or traditions" aria-label="Search the archive"></div><div id="archive-list" class="archive-list">{archive}</div></section>
@@ -105,13 +105,14 @@ header.hero{{padding:62px 0 34px}}.eyebrow{{color:var(--accent);font-size:.78rem
 </body></html>'''
 
 
-def verify(expected):
-    url = SITE + "?edition=" + urllib.parse.quote(expected)
+def verify(expected_date, expected_html):
+    url = SITE + "?edition=" + urllib.parse.quote(expected_date)
     request = urllib.request.Request(url, headers={"Cache-Control": "no-cache", "User-Agent": "philosophy-a-day-publisher/1.0"})
     try:
         with urllib.request.urlopen(request, timeout=15) as response:
             body = response.read().decode("utf-8", "replace")
-            return response.status == 200 and ('<meta name="philosophy-edition" content="' + expected + '">') in body
+            marker = '<meta name="philosophy-edition" content="' + expected_date + '">'
+            return response.status == 200 and marker in body and body.strip() == expected_html.strip()
     except (urllib.error.URLError, TimeoutError):
         return False
 
@@ -155,7 +156,7 @@ def main(filename):
     git("commit", "--only", "-m", "Daily philosophy: " + report_date, "--", "index.html", "reports/" + path.name)
     git("push", remote, "HEAD:" + remote_ref)
     for attempt in range(10):
-        if verify(report_date):
+        if verify(report_date, output):
             print(json.dumps({"status": "deployed", "date": report_date, "url": SITE}))
             return
         if attempt < 9:

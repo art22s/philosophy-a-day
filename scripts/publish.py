@@ -60,20 +60,24 @@ def render(reports):
     )
     cards = []
     for item in reports[1:]:
-        cards.append(
-            '<article class="archive-card" data-search="' + esc((item["title"] + " " + item["origin"] + " " + item["idea"]).lower()) + '">'
-            '<time datetime="' + esc(item["date"]) + '">' + esc(item["date"]) + "</time>"
-            '<h3><a href="#edition-' + esc(item["date"]) + '">' + esc(item["title"]) + "</a></h3>"
-            '<p class="archive-origin">' + esc(item["origin"]) + "</p>"
-            '<details id="edition-' + esc(item["date"]) + '"><summary>Read this edition</summary>'
-            '<dl><dt>When</dt><dd>' + esc(item["when"]) + '</dd><dt>Important people</dt><dd>' + esc(item["people"]) + '</dd>'
-            '<dt>Origin</dt><dd>' + esc(item["origin"]) + '</dd></dl>' + paragraph(item["idea"])
-            '<h4>Why it matters</h4>' + paragraph(item["relevance"])
-            '<h4>Sources</h4><ul>' + "".join('<li><a href="' + esc(s["url"]) + '" rel="noopener noreferrer">' + esc(s["name"]) + "</a></li>" for s in item["sources"])
-            + "</ul></details></article>"
+        item_sources = "".join(
+            '<li><a href="' + esc(s["url"]) + '" rel="noopener noreferrer">' + esc(s["name"]) + "</a></li>"
+            for s in item["sources"]
         )
+        cards.append("".join([
+            '<article class="archive-card" data-search="',
+            esc((item["title"] + " " + item["origin"] + " " + item["idea"]).lower()), '">',
+            '<time datetime="', esc(item["date"]), '">', esc(item["date"]), "</time>",
+            '<h3><a href="#edition-', esc(item["date"]), '">', esc(item["title"]), "</a></h3>",
+            '<p class="archive-origin">', esc(item["origin"]), "</p>",
+            '<details id="edition-', esc(item["date"]), '"><summary>Read this edition</summary>',
+            '<dl><dt>When</dt><dd>', esc(item["when"]), '</dd><dt>Important people</dt><dd>', esc(item["people"]), '</dd>',
+            '<dt>Origin</dt><dd>', esc(item["origin"]), '</dd></dl>', paragraph(item["idea"]),
+            '<h4>Why it matters</h4>', paragraph(item["relevance"]),
+            '<h4>Sources</h4><ul>', item_sources, "</ul></details></article>"
+        ]))
     archive = "\n".join(cards) if cards else '<p class="empty">The archive starts here. A new idea arrives every day.</p>'
-    index_data = json.dumps([{"date": x["date"], "title": x["title"], "origin": x["origin"], "idea": x["idea"]} for x in reports], ensure_ascii=False)
+    search_script = """<script>const q=document.querySelector('#search');q.addEventListener('input',()=>{const term=q.value.toLowerCase();document.querySelectorAll('.archive-card').forEach(card=>{card.hidden=!card.dataset.search.includes(term)})});</script>"""
     return f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="One carefully explained, source-linked philosophical idea each day, across cultures and disciplines.">
@@ -97,7 +101,7 @@ header.hero{{padding:62px 0 34px}}.eyebrow{{color:var(--accent);font-size:.78rem
 <div class="prose"><h3>The idea</h3>{paragraph(latest["idea"])}<h3>Why it matters</h3>{paragraph(latest["relevance"])}</div><aside class="sources"><h3>Further reading</h3><ul>{source_html}</ul></aside></article>
 <section class="archive" aria-labelledby="archive-title"><div class="archive-head"><div><div class="eyebrow">Keep exploring</div><h2 id="archive-title">The archive</h2></div><input id="search" class="search" type="search" placeholder="Search ideas or traditions" aria-label="Search the archive"></div><div id="archive-list" class="archive-list">{archive}</div></section>
 </main><footer>Daily philosophy, with sources. New editions arrive at noon Eastern.<br>All historical dates are approximate where scholarship is uncertain.</footer></div>
-<script>const editions={index_data};const q=document.querySelector('#search');q.addEventListener('input',()=>{{const term=q.value.toLowerCase();document.querySelectorAll('.archive-card').forEach(card=>{{card.hidden=!card.dataset.search.includes(term)}})}});</script>
+{search_script}
 </body></html>'''
 
 

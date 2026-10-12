@@ -6,10 +6,10 @@ The site is published with GitHub Pages at <https://art22s.github.io/philosophy-
 
 ## Add an edition
 
-Create a UTF-8 JSON file at `reports/YYYY-MM-DD.json` with `date`, `title`, `when`, `people`, `origin`, `idea`, `relevance`, and a non-empty `sources` array of `{ "name", "url" }` objects. Then run:
+Create a UTF-8 JSON file at `reports/YYYY-MM-DD-HHMMSSNNNNNNNNN.json` with `date`, `title`, `when`, `people`, `origin`, `idea`, `relevance`, and a non-empty `sources` array of `{ "name", "url" }` objects. The local timestamp makes every run a distinct edition, including multiple editions on the same day. Then run:
 
 ```sh
-python3 scripts/publish.py reports/YYYY-MM-DD.json
+python3 scripts/publish.py reports/YYYY-MM-DD-HHMMSSNNNNNNNNN.json
 ```
 
 The publisher validates and escapes all content, commits only the report and generated `index.html`, pushes without force, and checks the public page for the new edition.

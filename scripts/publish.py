@@ -2,7 +2,6 @@
 """Validate one daily philosophy report, render the archive, and publish safely."""
 import html
 import json
-import os
 import re
 import subprocess
 import sys
@@ -28,10 +27,17 @@ def esc(value):
     return html.escape(str(value), quote=True)
 
 
-def validate(report, expected_date):
+def validate(report, edition_id):
+    match = re.fullmatch(r"(\d{4}-\d{2}-\d{2})(?:-(\d{15}))?", edition_id)
+    if not match:
+        raise ValueError("report filename must be YYYY-MM-DD-HHMMSSNNNNNNNNN.json")
+    expected_date = match.group(1)
+    stamp = match.group(2)
+    if stamp and (int(stamp[:2]) > 23 or int(stamp[2:4]) > 59 or int(stamp[4:6]) > 59):
+        raise ValueError("edition timestamp is not a valid local time")
     fields = ("title", "when", "people", "origin", "idea", "relevance")
     if not isinstance(report, dict) or report.get("date") != expected_date:
-        raise ValueError("report must be an object whose date matches its YYYY-MM-DD filename")
+        raise ValueError("report date must match the date portion of its filename")
     date.fromisoformat(expected_date)
     for key in fields:
         if not isinstance(report.get(key), str) or not report[key].strip() or len(report[key]) > 8000:
@@ -45,7 +51,16 @@ def validate(report, expected_date):
         parts = urllib.parse.urlsplit(source.get("url", ""))
         if parts.scheme != "https" or not parts.netloc:
             raise ValueError("source URLs must use HTTPS")
+    report = dict(report)
+    report["edition_id"] = edition_id
     return report
+
+
+def edition_label(item):
+    stamp = item["edition_id"][11:]
+    if len(stamp) == 15:
+        return item["date"] + " · " + stamp[:2] + ":" + stamp[2:4] + ":" + stamp[4:6]
+    return item["date"]
 
 
 def paragraph(text):
@@ -67,10 +82,10 @@ def render(reports):
         cards.append("".join([
             '<article class="archive-card" data-search="',
             esc((item["title"] + " " + item["origin"] + " " + item["idea"]).lower()), '">',
-            '<time datetime="', esc(item["date"]), '">', esc(item["date"]), "</time>",
-            '<h3><a href="#edition-', esc(item["date"]), '">', esc(item["title"]), "</a></h3>",
+            '<time datetime="', esc(item["date"]), '">', esc(edition_label(item)), "</time>",
+            '<h3><a href="#edition-', esc(item["edition_id"]), '">', esc(item["title"]), "</a></h3>",
             '<p class="archive-origin">', esc(item["origin"]), "</p>",
-            '<details id="edition-', esc(item["date"]), '"><summary>Read this edition</summary>',
+            '<details id="edition-', esc(item["edition_id"]), '"><summary>Read this edition</summary>',
             '<dl><dt>When</dt><dd>', esc(item["when"]), '</dd><dt>Important people</dt><dd>', esc(item["people"]), '</dd>',
             '<dt>Origin</dt><dd>', esc(item["origin"]), '</dd></dl>', paragraph(item["idea"]),
             '<h4>Why it matters</h4>', paragraph(item["relevance"]),
@@ -81,7 +96,7 @@ def render(reports):
     return f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="One carefully explained, source-linked philosophical idea each day, across cultures and disciplines.">
-<meta name="philosophy-edition" content="{esc(latest["date"])}"><title>{esc(latest["title"])} — Philosophy a Day</title>
+<meta name="philosophy-edition" content="{esc(latest["edition_id"])}"><meta name="philosophy-date" content="{esc(latest["date"])}"><title>{esc(latest["title"])} — Philosophy a Day</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Literata:opsz,wght@7..72,500;7..72,600&display=swap" rel="stylesheet">
 <style>
@@ -96,7 +111,7 @@ header.hero{{padding:62px 0 34px}}.eyebrow{{color:var(--accent);font-size:.78rem
 @media(prefers-color-scheme:dark){{:root{{--ink:#ecece6;--muted:#b0b2aa;--paper:#171a18;--card:#202522;--line:#39413b;--accent:#8bcab5;--soft:#273d34}}.sources{{background:#272d29}}}}
 </style></head><body><div class="wrap"><div class="topbar"><a class="brand" href="./">◒ Philosophy a Day</a></div>
 <header class="hero"><div class="eyebrow">One idea, every day</div><h1>Think a little deeper.</h1><p class="lede">A daily field guide to how people have made sense of reality, knowledge, and the good life — across cultures, centuries, and disciplines.</p></header>
-<main><article class="report" id="edition-{esc(latest["date"])}"><div class="edition-date">TODAY'S EDITION · <time datetime="{esc(latest["date"])}">{esc(latest["date"])}</time></div><h2>{esc(latest["title"])}</h2>
+<main><article class="report" id="edition-{esc(latest["edition_id"])}"><div class="edition-date">LATEST EDITION · <time datetime="{esc(latest["date"])}">{esc(edition_label(latest))}</time></div><h2>{esc(latest["title"])}</h2>
 <div class="tags"><span class="tag">{esc(latest["origin"])}</span></div><dl class="facts"><dt>When</dt><dd>{esc(latest["when"])}</dd><dt>Important people</dt><dd>{esc(latest["people"])}</dd><dt>Origin</dt><dd>{esc(latest["origin"])}</dd></dl>
 <div class="prose"><h3>The idea</h3>{paragraph(latest["idea"])}<h3>Why it matters</h3>{paragraph(latest["relevance"])}</div><aside class="sources"><h3>Further reading</h3><ul>{source_html}</ul></aside></article>
 <section class="archive" aria-labelledby="archive-title"><div class="archive-head"><div><div class="eyebrow">Keep exploring</div><h2 id="archive-title">The archive</h2></div><input id="search" class="search" type="search" placeholder="Search ideas or traditions" aria-label="Search the archive"></div><div id="archive-list" class="archive-list">{archive}</div></section>
@@ -105,13 +120,13 @@ header.hero{{padding:62px 0 34px}}.eyebrow{{color:var(--accent);font-size:.78rem
 </body></html>'''
 
 
-def verify(expected_date, expected_html):
-    url = SITE + "?edition=" + urllib.parse.quote(expected_date)
+def verify(edition_id, expected_html):
+    url = SITE + "?edition=" + urllib.parse.quote(edition_id)
     request = urllib.request.Request(url, headers={"Cache-Control": "no-cache", "User-Agent": "philosophy-a-day-publisher/1.0"})
     try:
         with urllib.request.urlopen(request, timeout=15) as response:
             body = response.read().decode("utf-8", "replace")
-            marker = '<meta name="philosophy-edition" content="' + expected_date + '">'
+            marker = '<meta name="philosophy-edition" content="' + edition_id + '">'
             return response.status == 200 and marker in body and body.strip() == expected_html.strip()
     except (urllib.error.URLError, TimeoutError):
         return False
@@ -119,36 +134,26 @@ def verify(expected_date, expected_html):
 
 def main(filename):
     path = Path(filename).resolve()
-    if path.parent != (ROOT / "reports").resolve() or not re.fullmatch(r"\d{4}-\d{2}-\d{2}\.json", path.name):
-        raise ValueError("report path must be reports/YYYY-MM-DD.json")
-    report_date = path.stem
-    report = validate(json.loads(path.read_text(encoding="utf-8")), report_date)
+    if path.parent != (ROOT / "reports").resolve() or not re.fullmatch(r"\d{4}-\d{2}-\d{2}(?:-\d{15})?\.json", path.name):
+        raise ValueError("report path must be reports/YYYY-MM-DD-HHMMSSNNNNNNNNN.json")
+    edition_id = path.stem
+    report_date = edition_id[:10]
+    report = validate(json.loads(path.read_text(encoding="utf-8")), edition_id)
     reports_dir = ROOT / "reports"
     reports = []
-    for old in sorted(reports_dir.glob("????-??-??.json"), reverse=True):
+    for old in reports_dir.glob("*.json"):
         reports.append(validate(json.loads(old.read_text(encoding="utf-8")), old.stem))
-    reports.sort(key=lambda item: item["date"], reverse=True)
+    reports.sort(key=lambda item: (item["date"], item["edition_id"]), reverse=True)
     output = render(reports)
     index = ROOT / "index.html"
-    if index.exists() and index.read_text(encoding="utf-8") == output:
-        # Same-day manual reruns verify the existing edition rather than duplicating it.
-        for attempt in range(10):
-            if verify(report_date, output):
-                print(json.dumps({"status": "already_deployed", "date": report_date, "url": SITE}))
-                return
-            if attempt < 9:
-                time.sleep(3)
-        print(json.dumps({"status": "already_committed_unverified", "date": report_date, "url": SITE}))
-        raise SystemExit(2)
     if git("diff", "--cached", "--name-only"):
         raise ValueError("staged Git changes exist; refusing to publish")
     if git("status", "--porcelain", "--", "index.html"):
         raise ValueError("generated page has local Git changes; refusing to overwrite")
-    # The newly created report is expected to be untracked. Existing tracked editions
-    # must remain untouched; an accidental edit to one is rejected above the commit.
+    # Every invocation must add a new uniquely timestamped edition.
     tracked = subprocess.run(["git", "-C", str(ROOT), "ls-files", "--error-unmatch", "--", "reports/" + path.name], capture_output=True)
-    if tracked.returncode == 0 and git("status", "--porcelain", "--", "reports/" + path.name):
-        raise ValueError("report already exists with local changes; refusing to overwrite")
+    if tracked.returncode == 0:
+        raise ValueError("edition ID already exists; create a new timestamped report instead")
     branch = git("symbolic-ref", "--short", "HEAD")
     if branch != "main":
         raise ValueError("publication requires the main branch")
@@ -161,15 +166,15 @@ def main(filename):
         raise ValueError("main is not synchronized with GitHub; refusing to publish")
     index.write_text(output, encoding="utf-8")
     git("add", "--", "index.html", "reports/" + path.name)
-    git("commit", "--only", "-m", "Daily philosophy: " + report_date, "--", "index.html", "reports/" + path.name)
+    git("commit", "--only", "-m", "Daily philosophy: " + edition_id, "--", "index.html", "reports/" + path.name)
     git("push", remote, "HEAD:" + remote_ref)
     for attempt in range(10):
-        if verify(report_date, output):
-            print(json.dumps({"status": "deployed", "date": report_date, "url": SITE}))
+        if verify(edition_id, output):
+            print(json.dumps({"status": "deployed", "date": report_date, "edition_id": edition_id, "url": SITE}))
             return
         if attempt < 9:
             time.sleep(3)
-    print(json.dumps({"status": "pushed_unverified", "date": report_date, "url": SITE}))
+    print(json.dumps({"status": "pushed_unverified", "date": report_date, "edition_id": edition_id, "url": SITE}))
     raise SystemExit(2)
 
 

@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-13",
+  "title": "The Duhem–Quine Problem — what does a failed test actually refute?",
+  "when": "Pierre Duhem developed his account in late-19th- and early-20th-century philosophy of physics, especially in The Aim and Structure of Physical Theory (1906; revised 1914). W. V. O. Quine broadened related holist arguments in his 1951 essay “Two Dogmas of Empiricism.” The familiar combined label can obscure important differences between them.",
+  "people": "Pierre Duhem; W. V. O. Quine; later philosophers of science who distinguish different forms of underdetermination.",
+  "origin": "French philosophy of physics around 1900, later joined to mid-20th-century American analytic epistemology.",
+  "idea": "A prediction rarely follows from one hypothesis alone. Scientists also rely on assumptions about instruments, initial conditions, background theory, and how observations are interpreted. If an experiment conflicts with its prediction, the result shows that something in this supporting package needs reconsideration—but the observation by itself may not identify which part failed. Duhem emphasized this difficulty for physical theory: experiments test connected groups of assumptions rather than isolated propositions. Quine extended a related holism to knowledge more broadly, arguing that experience confronts an interconnected web of belief. This does not mean evidence is powerless or that scientists can rescue any claim without cost. Choices about revision are constrained by coherence, simplicity, explanatory success, and further tests; the point is that evidence often underdetermines a unique revision.",
+  "relevance": "The problem clarifies why one anomalous result need not instantly overthrow a theory, while also showing why protective adjustments should be judged by their wider consequences. It is useful when interpreting contested studies, measurement disputes, and claims that a single experiment has “proved” or “disproved” a complex idea.",
+  "sources": [
+    {
+      "name": "Stanford Encyclopedia of Philosophy: Underdetermination of Scientific Theory",
+      "url": "https://plato.stanford.edu/entries/scientific-underdetermination/"
+    },
+    {
+      "name": "Stanford Encyclopedia of Philosophy: Pierre Duhem",
+      "url": "https://plato.stanford.edu/entries/duhem/"
+    },
+    {
+      "name": "Quine, “Two Dogmas of Empiricism” (1951), JSTOR",
+      "url": "https://doi.org/10.2307/2181906"
+    }
+  ]
+}

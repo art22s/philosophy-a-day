@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-14",
+  "title": "Peirce’s Pragmatic Maxim — clarify an idea by its consequences",
+  "when": "Developed in the United States around 1870; Peirce’s influential published formulation appeared in 1878.",
+  "people": "Charles Sanders Peirce; William James and later John Dewey developed broader pragmatist traditions.",
+  "origin": "Nineteenth-century American philosophy, shaped by scientific inquiry and debates about logic, meaning, and experience.",
+  "idea": "Peirce’s pragmatic maxim proposes that to understand a concept fully, we should ask what conceivable practical effects we associate with its object. Those expected effects clarify what the concept means. In “How to Make Our Ideas Clear” (1878), he presents this as a higher grade of clarity than merely recognizing a word or offering an abstract definition. The maxim is a method for making distinctions precise and guiding inquiry—not the simple claim that whatever is useful is therefore true. For Peirce, ideas matter through their implications for possible experience and habits of action, while truth and belief remain questions for disciplined investigation.",
+  "relevance": "The maxim offers a useful check on vague public claims: what observable difference would accepting this idea make? It helps distinguish substantive disagreement from verbal confusion, and connects concepts to testable expectations without reducing every value or meaning to immediate utility.",
+  "sources": [
+    {
+      "name": "Stanford Encyclopedia of Philosophy — Pragmatism",
+      "url": "https://plato.stanford.edu/entries/pragmatism/"
+    },
+    {
+      "name": "Charles S. Peirce — How to Make Our Ideas Clear (1878)",
+      "url": "https://www.peirce.org/writings/p119.html"
+    },
+    {
+      "name": "Internet Encyclopedia of Philosophy — Peirce’s Pragmatism",
+      "url": "https://iep.utm.edu/peircepr/"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-22",
+  "title": "Hume’s Is–Ought Gap — facts don’t automatically prescribe",
+  "when": "Formulated in the third book of A Treatise of Human Nature, published in 1740; Hume’s ethics developed amid eighteenth-century Scottish debates about reason, sentiment, and morality.",
+  "people": "David Hume; later interpreters include R. M. Hare and Alasdair MacIntyre.",
+  "origin": "Eighteenth-century Scottish Enlightenment, in Hume’s discussion of moral reasoning and the moral-sense tradition.",
+  "idea": "Hume notices that moral writers often move from claims about what is the case to claims about what ought to be done, without explaining the transition. Because “ought” introduces a new kind of relation, he urges readers to account for how such a conclusion follows. The passage became the basis of the familiar is–ought distinction: factual premises alone do not obviously entail a normative conclusion. It is not a simple ban on drawing ethical conclusions from evidence, nor is its exact force settled. Scholars disagree about whether Hume is chiefly making a logical point, arguing that moral knowledge needs sentiment, or criticizing attempts to derive morality from reason alone. In his broader ethics, facts matter: reason helps us understand actions and consequences, while human sentiments of approval and disapproval play a role in moral judgment.",
+  "relevance": "The distinction is a useful check on arguments about policy, technology, and science: data can tell us what is happening and what consequences are likely, but recommendations also depend on values or normative principles. Making those assumptions explicit improves public debate and helps reveal when conclusions outrun their evidence.",
+  "sources": [
+    {
+      "name": "Stanford Encyclopedia of Philosophy, “Hume’s Moral Philosophy”",
+      "url": "https://plato.stanford.edu/entries/hume-moral/"
+    },
+    {
+      "name": "Hume Texts Online, Treatise 3.1",
+      "url": "https://davidhume.org/texts/t/3/1/full"
+    },
+    {
+      "name": "Hume, A Treatise of Human Nature, Book III (Early Modern Texts)",
+      "url": "https://www.earlymoderntexts.com/assets/pdfs/hume1740book3_1.pdf"
+    }
+  ]
+}

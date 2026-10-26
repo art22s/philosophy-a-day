@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-26",
+  "title": "Nyāya’s Inference — knowing beyond what you see",
+  "when": "The Nyāya-sūtra is commonly dated around the second century CE, though its composition and redaction history are uncertain; its ideas developed through centuries of commentary.",
+  "people": "Gautama (also called Akṣapāda), traditionally credited with the Nyāya-sūtra; Vātsyāyana, an influential early commentator; and later thinkers including Uddyotakara and Gaṅgeśa.",
+  "origin": "Ancient India, within Brahmanical philosophical traditions and a wider culture of public debate that interacted with Buddhist and other schools.",
+  "idea": "Nyāya treats inference not merely as a valid-looking argument but as a route to knowledge whose evidential connection must be established. In its familiar example, one infers fire on a mountain from smoke: the observer must recognize smoke there and understand its dependable concomitance with fire. The crucial challenge is explaining how such a general relation is known and avoiding counterexamples that would defeat it. Nyāya also recognizes perception, comparison, and testimony as sources of knowledge, and studies how they can support or challenge claims. This makes logic part of epistemology—the inquiry into how we know—not an isolated calculus of symbols. The tradition distinguishes reasoning that convinces oneself from argument presented to another, connecting private judgment with public scrutiny.",
+  "relevance": "The approach highlights a live problem in science, journalism, and AI: a visible signal supports a conclusion only when the link between them is trustworthy, tested, and open to defeaters. Nyāya’s attention to evidence, testimony, and debate offers a rich framework for asking not only whether an argument is formally neat, but whether its premises genuinely warrant belief.",
+  "sources": [
+    {"name": "Internet Encyclopedia of Philosophy: Nyāya", "url": "https://iep.utm.edu/nyaya/"},
+    {"name": "Stanford Encyclopedia of Philosophy: Logic in Classical Indian Philosophy", "url": "https://plato.stanford.edu/entries/logic-india/"},
+    {"name": "Stanford Encyclopedia of Philosophy: Epistemology in Classical Indian Philosophy", "url": "https://plato.stanford.edu/entries/epistemology-india/"}
+  ]
+}

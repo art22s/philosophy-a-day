@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-28",
+  "title": "Bayesian Epistemology — revise confidence as evidence arrives",
+  "when": "Thomas Bayes’s essay was presented by Richard Price to the Royal Society in December 1763. It appeared in a volume dated 1763 but published in 1764; Pierre-Simon Laplace independently developed inverse-probability methods from the 1770s. The philosophical framework continued to evolve.",
+  "people": "Thomas Bayes, Richard Price, and Pierre-Simon Laplace; later philosophers of probability and scientific confirmation.",
+  "origin": "Eighteenth-century British probability and arguments about induction, later developed in French mathematics and modern philosophy of science.",
+  "idea": "Bayesian epistemology treats belief as graded confidence, or credence, constrained by probability rules. When evidence arrives, conditionalization updates those degrees of belief according to how likely the evidence is under competing hypotheses. Evidence that a hypothesis predicts better than its rivals should raise its credence. This makes explicit that evidence is weighed against prior confidence and background assumptions; selecting priors and models remains a substantive and sometimes contested judgment.",
+  "relevance": "It explains why a medical test’s accuracy alone does not determine what a positive result means: the condition’s prevalence matters too. Similar reasoning informs scientific confirmation, forecasting, and machine learning, while exposing how assumptions shape apparently precise conclusions.",
+  "sources": [
+    {
+      "name": "Stanford Encyclopedia of Philosophy — Bayesian Epistemology",
+      "url": "https://plato.stanford.edu/entries/epistemology-bayesian/"
+    },
+    {
+      "name": "Royal Statistical Society, Significance — Bayes and Price: When did it Start?",
+      "url": "https://academic.oup.com/jrssig/article/17/6/6/7038240"
+    },
+    {
+      "name": "University of York — Thomas Bayes’s 1763 essay (primary text)",
+      "url": "https://www.york.ac.uk/depts/maths/histstat/essay.htm"
+    }
+  ]
+}

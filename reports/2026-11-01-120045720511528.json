@@ -1,0 +1,23 @@
+{
+  "date": "2026-11-01",
+  "title": "Rawls’s Original Position — choosing rules before knowing your place",
+  "when": "John Rawls developed justice as fairness in the mid-twentieth century; its landmark statement appeared in A Theory of Justice (1971), with later revisions in subsequent works.",
+  "people": "John Rawls (1921–2002), in dialogue with Locke, Rousseau, Kant, and the social-contract tradition.",
+  "origin": "Twentieth-century American political philosophy, shaped by debates over justice, liberty, and equality in a pluralist democracy.",
+  "idea": "Rawls asks us to imagine free and equal representatives choosing society’s basic rules without knowing their own class, race, sex, talents, religion, or conception of a good life. This “veil of ignorance” makes it harder to design rules for personal advantage. The parties still know general facts about people and society. Rawls argues their choice would protect equal basic liberties and allow inequalities only alongside fair equality of opportunity and arrangements that benefit the least advantaged. The original position is a test of fairness, not a real historical contract or a demand that actual citizens forget who they are.",
+  "relevance": "The thought experiment asks whether we would accept a policy if we might occupy any position under it. It remains influential but contested: critics challenge its assumptions and whether its principles follow from the setup. It can sharpen debates about taxation, healthcare, or AI governance without supplying automatic answers.",
+  "sources": [
+    {
+      "name": "Original Position, Stanford Encyclopedia of Philosophy",
+      "url": "https://plato.stanford.edu/entries/original-position/"
+    },
+    {
+      "name": "John Rawls, Stanford Encyclopedia of Philosophy",
+      "url": "https://plato.stanford.edu/entries/rawls/"
+    },
+    {
+      "name": "A Theory of Justice, Harvard University Press",
+      "url": "https://www.hup.harvard.edu/books/9780674000780"
+    }
+  ]
+}

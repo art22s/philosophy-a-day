@@ -1,0 +1,23 @@
+{
+  "date": "2026-11-03",
+  "title": "Anselm’s Ontological Argument — can thought establish existence?",
+  "when": "Anselm (c. 1033–1109) composed the Proslogion at the Benedictine abbey of Bec in Normandy around 1077–78. The date is approximate, and the work is a prayerful meditation as well as a philosophical text.",
+  "people": "Anselm of Canterbury; Gaunilo of Marmoutiers, his contemporary critic; later critics including Immanuel Kant.",
+  "origin": "It emerged in eleventh-century Latin Christian theology at Bec, within a monastic culture of prayer, scriptural study, and dialectical reasoning.",
+  "idea": "Anselm begins from the phrase “that than which nothing greater can be conceived.” Even a skeptic can understand it, so this being exists at least in the mind. But existing in reality is greater than existing only as an idea. If the greatest conceivable being were only mental, we could conceive a greater one—the same being, but real—contradicting the phrase. Therefore, Anselm concludes, God exists. In chapter 3, he adds that God cannot be conceived not to exist. This is an a priori argument: it tries to reach a claim about reality through reasoning from a concept, not observation.",
+  "relevance": "The argument presses whether reasoning alone can establish existence. Anselm’s contemporary Gaunilo parodied it with a “lost island”; Anselm replied that the reasoning applies to a necessarily existing God, not contingent things like islands. Whether that distinction succeeds remains disputed, making the argument a durable test of how concepts, possibility, and reality connect.",
+  "sources": [
+    {
+      "name": "Stanford Encyclopedia of Philosophy: Anselm of Canterbury",
+      "url": "https://plato.stanford.edu/entries/anselm/"
+    },
+    {
+      "name": "Internet Encyclopedia of Philosophy: Anselm’s Ontological Argument",
+      "url": "https://iep.utm.edu/anselm-ontological-argument/"
+    },
+    {
+      "name": "Anselm, Proslogion and Gaunilo’s Reply (UC Davis)",
+      "url": "https://hume.ucdavis.edu/phi001/anselm.html"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "date": "2026-11-04",
+  "title": "Newton’s Bucket Argument — what does rotation mean?",
+  "when": "Newton presented the argument in the Scholium to the Definitions of the Principia, first published in 1687, and revised the work in later editions. It emerged amid seventeenth-century disputes over absolute versus relational motion.",
+  "people": "Isaac Newton; René Descartes and Gottfried Wilhelm Leibniz, whose relational accounts he opposed; Ernst Mach, who later challenged Newton’s interpretation.",
+  "origin": "English natural philosophy during the Scientific Revolution, within a wider European debate about the foundations of mechanics.",
+  "idea": "Newton asks whether water’s concave surface is caused by its rotation relative to the bucket. When the bucket first turns, the water lags and its surface stays flat; later, water and bucket rotate together, yet the surface rises at the sides. Because the effect remains when relative motion between water and bucket disappears, Newton argues that true rotation cannot be reduced to motion relative to nearby bodies. He interprets it by reference to absolute space. The bucket is one of five arguments about motion in the Scholium, not a standalone experimental proof that absolute space exists.",
+  "relevance": "The example makes a lasting physics question tangible: are motions only descriptions relative to a chosen frame, or can they have measurable effects? Mach later offered a relational challenge; modern physics retains rotational and inertial effects while explaining them within a different theoretical framework.",
+  "sources": [
+    {
+      "name": "Newton’s Views on Space, Time, and Motion — Stanford Encyclopedia of Philosophy",
+      "url": "https://plato.stanford.edu/entries/newton-stm/"
+    },
+    {
+      "name": "Newton’s Scholium on Time, Space, Place and Motion — Oxford Handbook of Newton",
+      "url": "https://doi.org/10.1093/oxfordhb/9780199930418.013.28"
+    },
+    {
+      "name": "Newton’s bucket — MacTutor History of Mathematics, University of St Andrews",
+      "url": "https://mathshistory.st-andrews.ac.uk/HistTopics/Newton_bucket/"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "date": "2026-11-10",
+  "title": "Kuhn’s Paradigms — how scientific fields change",
+  "when": "Kuhn developed this account in mid-twentieth-century philosophy of science. The Structure of Scientific Revolutions appeared in 1962, revised in 1970; its model remains debated.",
+  "people": "Kuhn; critics included Karl Popper and Paul Feyerabend; Ian Hacking later clarified key terms.",
+  "origin": "United States, shaped by Kuhn’s physics training and history-of-science work at Harvard and Berkeley, amid disputes over whether knowledge advances by logic alone.",
+  "idea": "Kuhn argued that mature scientific fields share exemplars, concepts, instruments, and standards—a framework he called a paradigm. In “normal science,” researchers solve puzzles within it rather than continually challenge its foundations. Persistent anomalies may provoke a crisis; sometimes a rival framework reorganizes the field’s questions and standards. But this is no automatic cycle: anomalies do not instantly topple theories, and scholars dispute how closely historical episodes fit Kuhn’s model. “Paradigm” also has several meanings in his book. Kuhn’s central challenge was to the image of science as a steady accumulation of facts under unchanged assumptions; he did not thereby show that science is irrational.",
+  "relevance": "His account helps explain why evidence alone may not settle disputes: scientists can differ over which questions matter, what counts as explanation, or how to interpret results. It also warns against calling every product launch or policy pivot a “paradigm shift.” When research changes, ask which background assumptions changed—and which endured.",
+  "sources": [
+    {
+      "name": "Thomas Kuhn, Stanford Encyclopedia of Philosophy",
+      "url": "https://plato.stanford.edu/entries/thomas-kuhn/"
+    },
+    {
+      "name": "Scientific Revolutions, Stanford Encyclopedia of Philosophy",
+      "url": "https://plato.stanford.edu/entries/scientific-revolutions/"
+    },
+    {
+      "name": "MIT Libraries: The Structure of Scientific Revolutions",
+      "url": "https://libraries.mit.edu/150books/2011/04/18/1962/"
+    }
+  ]
+}

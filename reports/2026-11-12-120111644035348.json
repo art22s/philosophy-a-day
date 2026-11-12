@@ -1,0 +1,23 @@
+{
+  "date": "2026-11-12",
+  "title": "Leibniz’s Monads — a universe of distinct viewpoints",
+  "when": "Leibniz developed this mature metaphysics during the late seventeenth century and summarized it in a French manuscript in 1714. He neither published nor titled that manuscript: it appeared in German translation in 1720, while the familiar title was attached to its French edition in 1840.",
+  "people": "Gottfried Wilhelm Leibniz; his synthesis drew on Aristotle and Scholastic metaphysics while responding to early-modern mechanists such as Descartes.",
+  "origin": "Early modern German philosophy, shaped by Leibniz’s work across Leipzig, Paris, and Hanover and by European debates over substance, matter, and motion.",
+  "idea": "A monad is a simple, indivisible substance, not a tiny physical particle. It has perceptions representing the universe from its own viewpoint, and appetitions—internal tendencies through which it changes. Monads have “no windows”: created things cannot transmit changes into them. Yet their independent changes correspond because God established a pre-established harmony. For Leibniz, bodies and their apparent interactions form a coherent phenomenal order grounded in monads. Perception need not mean conscious thought; many monads perceive only obscurely.",
+  "relevance": "Leibniz turns the mind–matter problem inside out: instead of explaining how they transmit influence, he accounts for their apparent coordination through harmony. Though contested, his view raises a lasting question: do observed regularities reveal reality’s basic furniture, or only its organized appearances?",
+  "sources": [
+    {
+      "name": "Gottfried Wilhelm Leibniz, Stanford Encyclopedia of Philosophy",
+      "url": "https://plato.stanford.edu/entries/leibniz/"
+    },
+    {
+      "name": "Monadology, translated by Jonathan Bennett (primary text)",
+      "url": "https://www.earlymoderntexts.com/assets/pdfs/leibniz1714b.pdf"
+    },
+    {
+      "name": "Monadology, EBSCO Research Starters",
+      "url": "https://www.ebsco.com/research-starters/literature-and-writing/monadology-gottfried-wilhelm-leibniz"
+    }
+  ]
+}

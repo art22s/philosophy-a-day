@@ -1,0 +1,23 @@
+{
+  "date": "2026-11-13",
+  "title": "Pascal’s Wager — belief as a decision under uncertainty",
+  "when": "Pascal drafted the fragment during the final years of his life (1656–1662; its exact date is uncertain). His unfinished notes were published posthumously in the 1670 Pensées.",
+  "people": "Blaise Pascal; later decision theorists and philosophers of religion.",
+  "origin": "Seventeenth-century French Catholic thought, within Pascal’s effort to assemble an unfinished defense of Christianity and his mathematical study of games of chance.",
+  "idea": "Pascal asks a skeptic to treat belief in God as an unavoidable wager. In the familiar argument, if God exists, belief may bring infinite happiness; if not, the loss is finite. If the chance of God’s existence is positive, the potentially infinite payoff appears to favor wagering for God. This is a prudential argument about what to do under uncertainty, not evidence that God exists. Pascal also recognizes that belief may not be chosen at will and suggests religious practice as a route toward it. The fragment’s intended role—and whether Pascal meant it to convert unbelievers—remains contested.",
+  "relevance": "The wager separates reasons for believing something is true from the stakes of acting as though it might be true. Its critics ask whether infinite outcomes break ordinary expected-utility calculations, whether belief can be voluntary, and how the argument handles rival religions. It remains a sharp test case in decision theory and philosophy of religion, not a settled proof.",
+  "sources": [
+    {
+      "name": "Pascal’s Wager — Stanford Encyclopedia of Philosophy",
+      "url": "https://plato.stanford.edu/entries/pascal-wager/"
+    },
+    {
+      "name": "Blaise Pascal — Stanford Encyclopedia of Philosophy",
+      "url": "https://plato.stanford.edu/entries/pascal/"
+    },
+    {
+      "name": "Blaise Pascal — Internet Encyclopedia of Philosophy",
+      "url": "https://iep.utm.edu/pascal-b/"
+    }
+  ]
+}

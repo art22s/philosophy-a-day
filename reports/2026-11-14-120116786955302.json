@@ -1,0 +1,23 @@
+{
+  "date": "2026-11-14",
+  "title": "The Duhem–Quine Thesis — why experiments test bundles of assumptions",
+  "when": "Pierre Duhem developed the problem in the early twentieth century; La théorie physique appeared in 1906 and was revised in 1914. W. V. O. Quine advanced a broader, related holism in “Two Dogmas of Empiricism” (1951). The familiar combined label came later, and their theses are not identical.",
+  "people": "Pierre Duhem; W. V. O. Quine.",
+  "origin": "French philosophy of theoretical physics, later broadened within mid-twentieth-century American analytic philosophy.",
+  "idea": "Science rarely tests a hypothesis in isolation. When a prediction fails, evidence shows that at least one claim in the package used to derive it is mistaken, but does not by itself identify which one. The target theory may be wrong; so might an auxiliary hypothesis, an instrument model, or background beliefs. Duhem argued this about theoretical physics. Quine extended related holist ideas to our wider web of beliefs, which meets experience at its edges. The familiar name compresses distinct arguments; they should not be treated as one simple doctrine. This does not make evidence useless or mean any theory can be rescued indefinitely: further tests, independent measurements, and comparisons with the rest of science help determine which revisions are reasonable.",
+  "relevance": "In areas such as climate science and medicine, complex models mediate observation. The thesis encourages scrutiny of assumptions linking data to conclusions—and precision about what a result actually challenges.",
+  "sources": [
+    {
+      "name": "Stanford Encyclopedia of Philosophy: Underdetermination of Scientific Theory",
+      "url": "https://plato.stanford.edu/entries/scientific-underdetermination/"
+    },
+    {
+      "name": "Stanford Encyclopedia of Philosophy: Pierre Duhem",
+      "url": "https://plato.stanford.edu/entries/duhem/"
+    },
+    {
+      "name": "Stanford Encyclopedia of Philosophy: W. V. O. Quine",
+      "url": "https://plato.stanford.edu/entries/quine/"
+    }
+  ]
+}
